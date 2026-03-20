@@ -19,11 +19,42 @@ maximum-scale=1.0,minimum-scale=1.0">
         <img  src="/img/logo_2.png" alt="Logo pagina de fotografia" >
     </div>
     <div class="navegacion borde">
-        <h1 style="color: white;">Discos y Mucha Musica</h1>
+        <!--se agrega como lista ul
+con los elementos li que tienen enlaces-->
+        <ul>
+            <li><a href="#">Inicio</a></li>
+            <li><a href="#portafoliox">Portafolio</a>
+                <ul>
+                    <li><a href="">Productos</a>
+                        <ul>
+                            <li><a href="">Producto 1</a></li>
+                            <li><a href="">Producto 2</a></li>
+                            <li><a href="">Producto 3</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="">Servicios</a>
+                        <ul>
+                            <li><a href="">Servicio 1</a></li>
+                            <li><a href="">Servicio 2</a></li>
+                            <li><a href="">Servicio 3</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+                <li><a href="#quienes">Quiénes somos</a></li>
+                <li><a href="#contacto">Contáctenos</a></li>
+        </ul>
     </div>
-    <div class="ingreso borde">
-        <h1 style="color: white;">🎶 🎸</h1>
-    </div>
+    <div class="ingreso">
+    <ul>
+        <li><a href="/si/1-admin/index-admin.html">Ingresar</a>
+            <ul>
+                <li><a href="">Registro</a></li>
+                <li><a href="/html/ingreso.html">Ingreso</a></li>
+            </ul>
+        </li>
+    </ul>
+</div>
 </nav>
 
 <!-- Encabezado -->
@@ -31,7 +62,7 @@ maximum-scale=1.0,minimum-scale=1.0">
 <header class="borde"></header>
 
 <!-- Portafolio -->
-<div style="color: white;" class="borde-titulo">Portafolio</div>
+<div id="portafoliox" style="color: white;" class="borde-titulo">Portafolio</div>
 
 <main id="portafolio">
     <div class="div-porta borde">
@@ -52,7 +83,7 @@ maximum-scale=1.0,minimum-scale=1.0">
 </main>
 
 <!-- quienes-somos -->
-<div style="color: white;" class="borde-titulo">Quienes Somos</div>
+<div id="quienes" style="color: white;" class="borde-titulo">Quienes Somos</div>
 <!-- <div id="quienes-somos"class=borde></div> -->
 <section id="quienes-somos">
     <div class="fila">
@@ -72,13 +103,30 @@ maximum-scale=1.0,minimum-scale=1.0">
     </div>
 </section>
 <!-- contactenos -->
-<div style="color: white;" class="borde-titulo">Contáctanos</div>
+<div id="contacto" style="color: white;" class="borde-titulo">Contáctanos</div>
 <!-- <div id="contactenos"class=borde></div> -->
 <section id="contactenos">
-    <div class="div-contacto borde"></div>
-    <div class="div-contacto">
-    <div class="div-arr borde"></div>
-    <div class="div-aba borde"></div>
+<div class="div-contacto borde"></div>
+<div class="div-contacto">
+<!--mapa de google-->
+<div class="div-arr borde">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/2q6G8pIU9PQ?si=-AN3Sld-rWCHhpvq" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+<!-- información de la empresa -->
+<div class="div-aba">
+    <p class="direccion">
+        Dirección: 1111 North Capitol Street, NE, Washington, DC 20002, Estados Unidos.<br>
+    </p>
+    <p class="telefonos">
+        Teléfonos: 0313456789 / 3446778899 &nbsp;|&nbsp; 
+        <br>
+        Celular: 3186951481
+    </p>
+    <a href="https://www.facebook.com/nprmusic/" target="_blank">
+        <img class="facebook" src="img/Facebook_Logo_Primary.png">
+    </a>
+</div>
+
 </div>
 </section>
 <!-- pie de página -->

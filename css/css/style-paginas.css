@@ -1,0 +1,172 @@
+@font-face {
+    font-family: 'Fraunces';
+    src: url('/fonts/Fraunces-VariableFont.ttf') format('truetype');
+    font-weight: 100 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Fraunces';
+    src: url('/fonts/Fraunces-Italic.ttf') format('truetype');
+    font-weight: 100 900;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('/fonts/Montserrat-VariableFont.ttf') format('truetype');
+    font-weight: 100 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('/fonts/Montserrat-Italic.ttf') format('truetype');
+    font-weight: 100 900;
+    font-style: italic;
+}
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Fraunces', serif;
+}
+
+.borde-izq{
+    border-radius: 10px 0 0 10px;
+}
+.borde-der{
+    border-radius: 0 10px 10px 0;
+}
+
+.contenedor{
+    width: 95%;
+    margin: auto;
+}
+nav{
+    width: 100%;
+    padding: 10px 0;
+    color: #666;
+    font-size: 0.8em;
+}
+nav a:hover{
+    color: #000;
+    background: rgb(0, 0, 0, 0.2);
+}
+main h1{
+text-align: center;
+margin-bottom: 20px;
+}
+/* Imágenes */
+main img{
+display: block;
+width: 80%;
+height: auto;
+margin: auto;
+}
+/* Formularios */
+.form-comp{
+width: 90%;
+margin: auto;
+}
+.form-doble{
+width: 50%;
+height: 400px;
+background: #ddd;
+border: 1px solid #bbb;
+padding: 30px 0;
+float: left;
+}
+form{
+width: 100%;
+padding: 20px 0;
+}
+form .form-enc{
+width: 100%;
+padding: 10px;
+margin-bottom: 10px;
+border-bottom: 1px solid #aaa;
+}
+form h1{
+text-align: center;
+background: #eee;
+padding:5px;
+}
+form .form-cuerpo{
+width: 100%;
+padding: 10px;
+}
+form label, form input{
+display: inline-block;
+margin-bottom: 10px;
+}
+form label{
+padding: 10px;
+width: 40%;
+text-align: right;
+font-size: 0.8em;
+}
+form input, form select{
+padding: 10px 5px;
+width: 55%;
+}
+form .tipo-radio{
+font-size: 0.8em;
+}
+form .tipo-radio label{
+font-size: 1em;
+}
+form input[type="radio"]{
+width: 5%;
+}
+form .form-pie{
+width: 100%;
+padding: 10px 50px 0 10px;
+text-align: right;
+}
+form a{display: inline-block;
+width: 90px;
+height: 40px;
+padding: 13px;
+background: #aaa;
+text-decoration: none;
+text-align: center;
+color: #333;
+font-size: 0.8em;
+border-radius: 5px;
+border: 1px solid #888;
+}
+form .olvido{
+padding: 0;
+background: 0;
+width: 180px;
+text-align: right;
+}
+form a:hover{
+background: rgba(0,0,0,0.5);
+}
+form .olvido:hover{
+background: 0;
+color: #999;
+}
+/* Estilos de Tablas */
+table {
+width: 90%;
+margin: auto;
+border-collapse: collapse;
+font-size: 0.7em;
+width: 100%;
+}
+th{
+background: #333;
+color: #fff;
+}
+td, th {
+text-align: center;
+border: 1px solid #ddd;
+padding: 8px;
+}
+tr:nth-child(even) {
+background-color: #ddd;
+}
