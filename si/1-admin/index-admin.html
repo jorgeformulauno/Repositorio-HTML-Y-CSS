@@ -1,116 +1,102 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Administrador</title>
-    <link rel="shortcut icon" href="../../img/favicon-perfil.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Administración</title>
     <link rel="stylesheet" href="/css/css/style-admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <div class="contenedor">
+    <div class="contenedor-principal">
 
-        <!-- Navegador -->
-        <nav>
+        <nav class="navbar">
             <div class="logo">
-                <img src="/img/logo_2.png" alt="Logo sistema">
+                <img src="/img/logo_2.png" alt="Logo">
             </div>
 
-            <div class="navega">
-                <div class="documentacion">
-                    <ul>
-                        <li><a href="">Opciones</a>
-                            <ul>
-                                <li><a href="">Opción A</a>
-                                    <ul>
-                                        <!-- PDF ubicado en doc/pdf/mapa-navegacion.pdf -->
-                                        <li><a href="../../doc/pdf/mapa-navegacion.pdf"
-                                            target="area-principal">Opción A-1 doc</a></li>
-                                        <li><a href="">Opción A-2</a></li>
-                                        <li><a href="">Opción A-3</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="">Opción B</a>
-                                    <ul>
-                                        <li><a href="">Opción B-1</a></li>
-                                        <li><a href="">Opción B-2</a></li>
-                                        <li><a href="">Opción B-3</a></li>
-                                        <li><a href="">Opción B-4</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="ingreso">
-                <ul>
-                    <li><a href="">Administrador</a>
-                        <ul>
-                            <li><a href="../1-admin/mod_1_usaurios/configurar-perfil.html"
-                                target="area-principal">Configuración</a></li>
-                            <li><a href="../../../index.html">Salir</a></li>
+            <div class="nav-content">
+                <ul class="menu-horizontal">
+                    <li class="dropdown">
+                        <a href="#">Opciones <i class="fas fa-chevron-down"></i></a>
+                        <ul class="submenu">
+                            <li class="has-inner">
+                                <a href="#">Configuración <i class="fas fa-chevron-right"></i></a>
+                                <ul class="submenu-inner">
+                                    <li><a href="../../img/pexels-rdne-7413936.jpg" target="area-principal">Documentación</a></li>
+                                    <li><a href="#">Seguridad</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">Preferencias</a></li>
                         </ul>
                     </li>
                 </ul>
+
+                <div class="usuario-top dropdown">
+                    <a href="#">Administrador <i class="fas fa-user-circle"></i></a>
+                    <ul class="submenu right-align">
+                        <li><a href="../1-admin/mod_1_usaurios/configurar-perfil.html" target="area-principal">Mi Perfil</a></li>
+                        <li><a href="../../../index.html" class="btn-salir">Cerrar Sesión</a></li>
+                    </ul>
+                </div>
             </div>
         </nav>
 
-        <!-- Aside / Sidebar -->
-        <aside>
-            <div class="borde mod-perfil">
-                <div class="img-perfil">
-                    <img class="borde foto-admin" src="../../img/foto-admin.jpg"
-                        alt="Foto administrador">
+        <div class="cuerpo-app">
+            <aside class="sidebar">
+                <div class="perfil-card">
+                    <div class="avatar-container">
+                        <img src="../../img/imgAdmin.jpg" alt="Admin" class="foto-admin">
+                    </div>
+                    <div class="info-admin">
+                        <h2>James Gandolfini</h2>
+                        <span class="rol">Administrador</span>
+                        <a href="../1-admin/mod_1_usaurios/configurar-perfil.html" target="area-principal" class="link-config">
+                            <i class="fas fa-cog"></i> Configuración
+                        </a>
+                    </div>
                 </div>
-                <div class="descr-perfil">
-                    <h1>Administrador</h1>
-                    <p>Nombre completo</p>
-                    <a href="../1-admin/mod_1_usaurios/configurar-perfil.html"
-                        target="area-principal">Configuración</a>
-                </div>
-            </div>
 
-            <div class="borde mod-usuarios">
-                <h3>Módulo 1</h3>
-                <h4>Gestión de usuarios</h4>
-                <div class="opciones">
-                    <a href="../1-admin/mod_1_usaurios/crear-usuarios.html"
-                        target="area-principal">Crear Usuario</a>
-                    <a href="../1-admin/mod_1_usaurios/consulta-usuarios.html"
-                        target="area-principal">Consultar Usuarios</a>
-                    <a href="../1-admin/mod_1_usaurios/reporte-usuarios.html"
-                        target="area-principal">Reporte Usuario</a>
-                </div>
-            </div>
+                <nav class="menu-lateral">
+                    <div class="modulo">
+                        <h3>Módulo 1</h3>
+                        <h4>Gestión de Usuarios</h4>
+                        <div class="enlaces">
+                            <a href="../1-admin/mod_1_usaurios/crear-usuarios.html" target="area-principal"><i class="fas fa-user-plus"></i> Crear Usuario</a>
+                            <a href="../1-admin/mod_1_usaurios/consulta-usuarios.html" target="area-principal"><i class="fas fa-users"></i> Consultar Usuarios</a>
+                            <a href="../1-admin/mod_1_usaurios/reporte-usuarios.html" target="area-principal"><i class="fas fa-file-alt"></i> Reporte Usuario</a>
+                        </div>
+                    </div>
 
-            <div class="borde mod-dos">
-                <h3>Módulo 2</h3>
-                <h4>RF2 - Req. Func. 2</h4>
-            </div>
+                    <div class="modulo">
+                        <h3>Módulo 2</h3>
+                        <h4>Operaciones</h4>
+                        <div class="enlaces">
+                            <a href="#"><i class="fas fa-tasks"></i> Req. Funcional 2</a>
+                        </div>
+                    </div>
 
-            <div class="borde mod-tres">
-                <h3>Módulo 3</h3>
-                <h4>RF3 - Req. Func. 3</h4>
-            </div>
-        </aside>
+                    <div class="modulo">
+                        <h3>Módulo 3</h3>
+                        <h4>Reportes</h4>
+                        <div class="enlaces">
+                            <a href="#"><i class="fas fa-chart-line"></i> Req. Funcional 3</a>
+                        </div>
+                    </div>
+                </nav>
+            </aside>
 
-        <!-- Área principal -->
-        <main>
-            <iframe name="area-principal" src="/si/1-admin/principal.html"></iframe>
-        </main>
+            <main class="contenido-dinamico">
+                <iframe name="area-principal" src="/si/1-admin/principal.html" frameborder="0"></iframe>
+            </main>
+        </div>
 
-        <!-- Pie de página -->
-        <footer>
-            <div class="borde foot-izq">
-                <ul>
-                    <li title="Salir"><a href="/index.html">Salir</a></li>
-                </ul>
+        <footer class="footer">
+            <div class="footer-info">
+                <p>Copyright © 2026 | Adaptación: <strong>Jorge Almanza</strong></p>
             </div>
-            <div class="borde foot-der">
-                <p>Autor pedagógico: Albeiro Ramos</p>
-                <p>Copyright © - 2019. Todos los Derechos Reservados</p>
-                <p>Adaptación y edición: Angélica Triana</p>
+            <div class="footer-autor">
+                <p>Autor pedagógico: Albeiro Ramos / Edición: Angélica Triana</p>
             </div>
         </footer>
 

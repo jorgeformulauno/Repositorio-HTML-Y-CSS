@@ -1,18 +1,450 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-<meta charset="UTF-8">
-<title>Principal Administrador</title>
-<link rel="stylesheet" href="/css/css/style-paginas.css">
+    <meta charset="UTF-8">
+    <title>Principal Administrador</title>
+    <link rel="stylesheet" href="/css/css/style-paginas.css">
+    <style>
+        /* ── Variables ── */
+        :root {
+            --azul:    #17278A;
+            --oscuro:  #333;
+            --gris:    #f5f5f5;
+            --borde:   #ddd;
+            --texto:   #444;
+            --blanco:  #fff;
+            --verde:   #2e7d32;
+            --naranja: #e65100;
+            --amarillo:#f9a825;
+        }
+
+        body { background: var(--gris); }
+
+        /* ── Breadcrumb ── */
+        nav {
+            background: var(--blanco);
+            border-bottom: 1px solid var(--borde);
+            padding: 10px 20px;
+            font-size: 0.78em;
+            color: #888;
+        }
+        nav a {
+            color: var(--azul);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        nav a:hover { text-decoration: underline; }
+        nav span { margin: 0 6px; }
+
+        /* ── Contenedor ── */
+        .contenedor {
+            width: 100%;
+            padding: 24px 28px;
+        }
+
+        /* ── Cabecera bienvenida ── */
+        .bienvenida {
+            background: linear-gradient(135deg, var(--azul) 0%, #0d1a5e 100%);
+            border-radius: 12px;
+            padding: 28px 32px;
+            color: var(--blanco);
+            margin-bottom: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+        }
+        .bienvenida-texto h1 {
+            font-size: 1.5em;
+            font-weight: 700;
+            margin-bottom: 6px;
+            text-align: left;
+        }
+        .bienvenida-texto p {
+            font-size: 0.82em;
+            opacity: 0.85;
+            font-family: 'Montserrat', sans-serif;
+        }
+        .bienvenida-fecha {
+            text-align: right;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.78em;
+            opacity: 0.8;
+            white-space: nowrap;
+        }
+        .bienvenida-fecha strong {
+            display: block;
+            font-size: 1.6em;
+            font-family: 'Fraunces', serif;
+            opacity: 1;
+        }
+
+        /* ── Tarjetas de estadísticas ── */
+        .tarjetas {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            margin-bottom: 28px;
+        }
+        .tarjeta {
+            background: var(--blanco);
+            border-radius: 10px;
+            padding: 20px 18px;
+            border: 1px solid var(--borde);
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .tarjeta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+        }
+        .tarjeta::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 5px;
+            height: 100%;
+            border-radius: 10px 0 0 10px;
+        }
+        .tarjeta.azul::before   { background: var(--azul); }
+        .tarjeta.verde::before  { background: var(--verde); }
+        .tarjeta.naranja::before{ background: var(--naranja); }
+        .tarjeta.amarillo::before{ background: var(--amarillo); }
+
+        .tarjeta-icono {
+            font-size: 1.8em;
+            margin-bottom: 10px;
+        }
+        .tarjeta-valor {
+            font-size: 2em;
+            font-weight: 700;
+            color: var(--oscuro);
+            line-height: 1;
+        }
+        .tarjeta-label {
+            font-size: 0.72em;
+            color: #888;
+            margin-top: 6px;
+            font-family: 'Montserrat', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .tarjeta-sub {
+            font-size: 0.72em;
+            margin-top: 8px;
+            font-family: 'Montserrat', sans-serif;
+        }
+        .tarjeta-sub.up   { color: var(--verde); }
+        .tarjeta-sub.down { color: var(--naranja); }
+
+        /* ── Fila inferior: tabla + accesos rápidos ── */
+        .fila-inferior {
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 20px;
+        }
+
+        /* ── Panel genérico ── */
+        .panel {
+            background: var(--blanco);
+            border-radius: 10px;
+            border: 1px solid var(--borde);
+            overflow: hidden;
+        }
+        .panel-header {
+            background: var(--oscuro);
+            color: var(--blanco);
+            padding: 12px 18px;
+            font-size: 0.85em;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .panel-body { padding: 18px; }
+
+        /* ── Tabla actividad reciente ── */
+        .tabla-actividad {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.76em;
+            font-family: 'Montserrat', sans-serif;
+        }
+        .tabla-actividad th {
+            background: #f0f0f0;
+            color: var(--oscuro);
+            padding: 9px 12px;
+            text-align: left;
+            font-size: 0.78em;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+        .tabla-actividad td {
+            padding: 9px 12px;
+            border-bottom: 1px solid #f0f0f0;
+            text-align: left;
+            color: var(--texto);
+        }
+        .tabla-actividad tr:last-child td { border-bottom: none; }
+        .tabla-actividad tr:hover td { background: #fafafa; }
+
+        .badge {
+            display: inline-block;
+            padding: 3px 9px;
+            border-radius: 20px;
+            font-size: 0.78em;
+            font-weight: 600;
+        }
+        .badge-ok     { background: #e8f5e9; color: var(--verde); }
+        .badge-warn   { background: #fff3e0; color: var(--naranja); }
+        .badge-info   { background: #e3f2fd; color: #1565c0; }
+
+        /* ── Accesos rápidos ── */
+        .accesos {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .acceso-btn {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 13px 14px;
+            border-radius: 8px;
+            background: var(--gris);
+            border: 1px solid var(--borde);
+            text-decoration: none;
+            color: var(--oscuro);
+            font-size: 0.82em;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            transition: background 0.18s, border-color 0.18s;
+        }
+        .acceso-btn:hover {
+            background: var(--azul);
+            color: var(--blanco);
+            border-color: var(--azul);
+        }
+        .acceso-btn span.ico { font-size: 1.3em; }
+
+        /* ── Barra de progreso ── */
+        .progreso-wrap { margin-bottom: 14px; }
+        .progreso-label {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.75em;
+            font-family: 'Montserrat', sans-serif;
+            color: var(--texto);
+            margin-bottom: 5px;
+        }
+        .progreso-bar {
+            background: #e0e0e0;
+            border-radius: 6px;
+            height: 8px;
+            overflow: hidden;
+        }
+        .progreso-fill {
+            height: 100%;
+            border-radius: 6px;
+            transition: width 0.6s ease;
+        }
+        .fill-azul    { background: var(--azul); }
+        .fill-verde   { background: var(--verde); }
+        .fill-naranja { background: var(--naranja); }
+    </style>
 </head>
 <body>
-<div class="contenedor">
+
 <nav>
-<a href="principal.html">Principal</a>
+    <a href="principal.html">🏠 Inicio</a>
+    <span>›</span> Panel principal
 </nav>
-<main>
-<h1>Principal</h1>
-</main>
-</div>
+
+<div class="contenedor">
+
+    <!-- Bienvenida -->
+    <div class="bienvenida">
+        <div class="bienvenida-texto">
+            <h1>Bienvenido, Administrador 👋</h1>
+            <p>Aquí tienes un resumen del estado actual del sistema.</p>
+        </div>
+        <div class="bienvenida-fecha">
+            <strong id="reloj">--:--</strong>
+            <span id="fecha-hoy"></span>
+        </div>
+    </div>
+
+    <!-- Tarjetas estadísticas -->
+    <div class="tarjetas">
+        <div class="tarjeta azul">
+            <div class="tarjeta-icono">👤</div>
+            <div class="tarjeta-valor">24</div>
+            <div class="tarjeta-label">Usuarios registrados</div>
+            <div class="tarjeta-sub up">↑ 3 nuevos este mes</div>
+        </div>
+        <div class="tarjeta verde">
+            <div class="tarjeta-icono">✅</div>
+            <div class="tarjeta-valor">18</div>
+            <div class="tarjeta-label">Usuarios activos</div>
+            <div class="tarjeta-sub up">↑ 75% del total</div>
+        </div>
+        <div class="tarjeta naranja">
+            <div class="tarjeta-icono">⚠️</div>
+            <div class="tarjeta-valor">3</div>
+            <div class="tarjeta-label">Módulos pendientes</div>
+            <div class="tarjeta-sub down">En desarrollo</div>
+        </div>
+        <div class="tarjeta amarillo">
+            <div class="tarjeta-icono">📋</div>
+            <div class="tarjeta-valor">7</div>
+            <div class="tarjeta-label">Reportes generados</div>
+            <div class="tarjeta-sub up">↑ Esta semana</div>
+        </div>
+    </div>
+
+    <!-- Fila inferior -->
+    <div class="fila-inferior">
+
+        <!-- Tabla actividad reciente -->
+        <div>
+            <div class="panel">
+                <div class="panel-header">📋 Actividad reciente</div>
+                <div class="panel-body" style="padding: 0;">
+                    <table class="tabla-actividad">
+                        <thead>
+                            <tr>
+                                <th>Usuario</th>
+                                <th>Acción</th>
+                                <th>Módulo</th>
+                                <th>Hora</th>
+                                <th>Estado</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>James Gandolfini</td>
+                                <td>Creación de usuario</td>
+                                <td>Módulo 1</td>
+                                <td>09:14 a.m.</td>
+                                <td><span class="badge badge-ok">Exitoso</span></td>
+                            </tr>
+                            <tr>
+                                <td>Ana Martínez</td>
+                                <td>Consulta de usuarios</td>
+                                <td>Módulo 1</td>
+                                <td>09:02 a.m.</td>
+                                <td><span class="badge badge-ok">Exitoso</span></td>
+                            </tr>
+                            <tr>
+                                <td>Carlos López</td>
+                                <td>Reporte exportado</td>
+                                <td>Módulo 1</td>
+                                <td>08:47 a.m.</td>
+                                <td><span class="badge badge-info">Pendiente</span></td>
+                            </tr>
+                            <tr>
+                                <td>María Pérez</td>
+                                <td>Modificación perfil</td>
+                                <td>Configuración</td>
+                                <td>08:30 a.m.</td>
+                                <td><span class="badge badge-ok">Exitoso</span></td>
+                            </tr>
+                            <tr>
+                                <td>Luis Torres</td>
+                                <td>Intento de acceso</td>
+                                <td>Sistema</td>
+                                <td>08:11 a.m.</td>
+                                <td><span class="badge badge-warn">Fallido</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Progreso módulos -->
+            <div class="panel" style="margin-top: 18px;">
+                <div class="panel-header">📊 Progreso del sistema</div>
+                <div class="panel-body">
+                    <div class="progreso-wrap">
+                        <div class="progreso-label">
+                            <span>Módulo 1 — Gestión de usuarios</span>
+                            <span>100%</span>
+                        </div>
+                        <div class="progreso-bar">
+                            <div class="progreso-fill fill-verde" style="width:100%"></div>
+                        </div>
+                    </div>
+                    <div class="progreso-wrap">
+                        <div class="progreso-label">
+                            <span>Módulo 2 — RF2</span>
+                            <span>40%</span>
+                        </div>
+                        <div class="progreso-bar">
+                            <div class="progreso-fill fill-azul" style="width:40%"></div>
+                        </div>
+                    </div>
+                    <div class="progreso-wrap">
+                        <div class="progreso-label">
+                            <span>Módulo 3 — RF3</span>
+                            <span>10%</span>
+                        </div>
+                        <div class="progreso-bar">
+                            <div class="progreso-fill fill-naranja" style="width:10%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Accesos rápidos -->
+        <div>
+            <div class="panel" style="height: 100%;">
+                <div class="panel-header">⚡ Accesos rápidos</div>
+                <div class="panel-body">
+                    <div class="accesos">
+                        <a href="../1-admin/mod_1_usaurios/crear-usuarios.html"
+                           target="area-principal" class="acceso-btn">
+                            <span class="ico">➕</span> Crear usuario
+                        </a>
+                        <a href="../1-admin/mod_1_usaurios/consulta-usuarios.html"
+                           target="area-principal" class="acceso-btn">
+                            <span class="ico">🔍</span> Consultar usuarios
+                        </a>
+                        <a href="../1-admin/mod_1_usaurios/reporte-usuarios.html"
+                           target="area-principal" class="acceso-btn">
+                            <span class="ico">📄</span> Reporte de usuarios
+                        </a>
+                        <a href="../1-admin/mod_1_usaurios/configurar-perfil.html"
+                           target="area-principal" class="acceso-btn">
+                            <span class="ico">⚙️</span> Configurar perfil
+                        </a>
+                        <a href="/index.html" class="acceso-btn">
+                            <span class="ico">🚪</span> Cerrar sesión
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div><!-- /fila-inferior -->
+</div><!-- /contenedor -->
+<script>
+    // Función para actualizar el reloj cada segundo
+    function actualizarReloj() {
+        const reloj = document.getElementById('reloj');
+        const fechaHoy = document.getElementById('fecha-hoy');
+        const ahora = new Date();
+        const horas = String(ahora.getHours()).padStart(2, '0');
+        const minutos = String(ahora.getMinutes()).padStart(2, '0');
+        reloj.textContent = `${horas}:${minutos}`;
+
+        const opcionesFecha = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+        fechaHoy.textContent = ahora.toLocaleDateString('es-ES', opcionesFecha);
+    }
+    setInterval(actualizarReloj, 1000);
+    actualizarReloj(); // Llamada inicial para mostrar la hora al cargar
+</script>
 </body>
 </html>
+

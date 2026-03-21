@@ -295,3 +295,76 @@ p {
     max-width: 300px; 
     margin: 10px auto;
 }
+
+/* Estilos para la sección Quiénes Somos */
+#quienes-somos {
+    background-color: #1a1a1a; /* Fondo oscuro tipo estudio */
+    display: flex;
+    flex-direction: column;
+}
+
+.contenido-texto {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px !important;
+    background: rgba(23, 39, 138, 0.1); /* Un toque del azul de tu nav */
+    transition: background 0.3s;
+}
+
+.contenido-texto:hover {
+    background: rgba(23, 39, 138, 0.3);
+}
+
+.contenido-texto h3 {
+    font-family: 'Fraunces', serif;
+    color: #17278A;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+}
+
+.contenido-texto p {
+    font-size: 0.9rem !important;
+    line-height: 1.4 !important;
+    color: #ddd !important;
+    margin: 0 !important;
+}
+
+
+.circulo-logo {
+    width: 60px;
+    height: 60px;
+    border: 2px solid white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+    margin-bottom: 10px;
+}
+
+/* Espacios para tus imágenes (puedes cambiarlas por tus rutas) */
+.img-quienes-1, .img-quienes-2, .img-quienes-3, .img-quienes-4, .img-quienes-5 {
+    background-size: cover;
+    background-position: center;
+    filter: grayscale(50%);
+    transition: filter 0.5s;
+}
+
+.img-quienes-1:hover, .img-quienes-2:hover, .img-quienes-3:hover, .img-quienes-4:hover, .img-quienes-5:hover {
+    filter: grayscale(0%);
+}
+
+.img-quienes-1 { background-image: url('../img/vinilo.jpg'); }
+.img-quienes-2 { background-image: url('../img/estudio1.jpg'); }
+.img-quienes-3 { background-image: url('../img/guitarra.jpg'); }
+.img-quienes-4 { background-image: url('../img/consola.jpg'); }
+.img-quienes-5 { background-image: url('../img/microfono.jpg'); }
+
+/* Ajuste de las filas para que no se desborden si hay mucho texto */
+.fila {
+    display: flex;
+    min-height: 183px; /* Aproximadamente 550 / 3 */
+}
