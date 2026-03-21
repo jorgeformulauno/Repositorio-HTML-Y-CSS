@@ -332,6 +332,14 @@ p {
     margin: 0 !important;
 }
 
+/* Caja central decorativa */
+.contenido-destacado {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
 
 .circulo-logo {
     width: 60px;
@@ -345,7 +353,7 @@ p {
     margin-bottom: 10px;
 }
 
-/* Espacios para tus imágenes (puedes cambiarlas por tus rutas) */
+/* Espacios para las imágenes  */
 .img-quienes-1, .img-quienes-2, .img-quienes-3, .img-quienes-4, .img-quienes-5 {
     background-size: cover;
     background-position: center;
@@ -367,4 +375,68 @@ p {
 .fila {
     display: flex;
     min-height: 183px; /* Aproximadamente 550 / 3 */
+}
+/* Estilos para el nuevo formulario de Jorge */
+.container-form {
+    padding: 40px;
+    background: rgba(0, 0, 0, 0.4); /* Fondo semi-transparente */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.form-contacto h3 {
+    font-family: 'Fraunces', serif;
+    color: #17278A; /* El azul de tu marca */
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+.grupo-input {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.grupo-input label {
+    font-size: 0.8rem;
+    margin-bottom: 5px;
+    color: #bbb;
+}
+
+.grupo-input input, 
+.grupo-input textarea {
+    width: 100%;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid #444;
+    border-radius: 4px;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.grupo-input input:focus, 
+.grupo-input textarea:focus {
+    outline: none;
+    border-color: #17278A;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.btn-enviar {
+    width: 100%;
+    padding: 12px;
+    background-color: #17278A;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: 'Fraunces', serif;
+    font-weight: bold;
+    transition: background 0.3s;
+    margin-top: 10px;
+}
+
+.btn-enviar:hover {
+    background-color: #0d1a63;
 }
