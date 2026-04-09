@@ -426,7 +426,6 @@ background-color: #ddd;
 /* ==============================
    DASHBOARD PRINCIPAL
 ============================== */
-
 .dashboard {
     padding: 30px;
     background: linear-gradient(135deg, #1e293b, #0f172a);
@@ -435,6 +434,8 @@ background-color: #ddd;
     display: flex;
     flex-direction: column;
     gap: 25px;
+    min-height: 100vh; /* 🔥 ocupa toda la pantalla */
+    width: 100%;
 }
 
 /* ---- Bienvenida ---- */
