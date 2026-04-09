@@ -1,27 +1,27 @@
 @font-face {
     font-family: 'Fraunces';
-    src: url('/fonts/Fraunces-VariableFont.ttf') format('truetype');
+    src: url('../fonts/Fraunces-VariableFont.ttf') format('truetype');
     font-weight: 100 900;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Fraunces';
-    src: url('/fonts/Fraunces-Italic.ttf') format('truetype');
+    src: url('../fonts/Fraunces-Italic.ttf') format('truetype');
     font-weight: 100 900;
     font-style: italic;
 }
 
 @font-face {
     font-family: 'Montserrat';
-    src: url('/fonts/Montserrat-VariableFont.ttf') format('truetype');
+    src: url('../fonts/Montserrat-VariableFont.ttf') format('truetype');
     font-weight: 100 900;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Montserrat';
-    src: url('/fonts/Montserrat-Italic.ttf') format('truetype');
+    src: url('../fonts/Montserrat-Italic.ttf') format('truetype');
     font-weight: 100 900;
     font-style: italic;
 }
@@ -39,7 +39,7 @@ h1{
     font-weight: 100;
 }
 .row{
-    background-image: url(/img/login.jpg);
+    background-image: url(../img/login.jpg);
     background-size: cover;
     width: 420px;
     height: 450px;
@@ -70,7 +70,7 @@ input[type="submit"] {
 font-size: 1em;
 background-color: #DB9F16;
 color: #fff;
-font-family:'Fraunces', serif;
+font-family: 'Montserrat', sans-serif ;
 width: 100%;
 height: 50px;
 outline: none;

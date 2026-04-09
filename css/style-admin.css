@@ -1,3 +1,31 @@
+@font-face {
+    font-family: 'Fraunces';
+    src: url('../fonts/Fraunces-Italic.ttf') format('truetype');
+    font-weight: 100 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Fraunces';
+    src: url('../fonts/Fraunces-Italic.ttf') format('truetype');
+    font-weight: 100 900;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('../fonts/Montserrat-VariableFont.ttf') format('truetype');
+    font-weight: 100 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('../fonts/Montserrat-Italic.ttf') format('truetype');
+    font-weight: 100 900;
+    font-style: italic;
+}
+
 /* Variables de colores */
 :root {
     --color-primario: #17278A;
@@ -16,7 +44,7 @@
 }
 
 body {
-    font-family: var(--fuente-cuerpo);
+    font-family: 'Montserrat', sans-serif ;
     background-color: #f4f4f4;
     overflow: hidden; /* Evita doble scroll */
 }
@@ -158,7 +186,7 @@ body {
 }
 
 .info-admin h2 {
-    font-family: var(--fuente-titulo);
+    font-family: 'Fraunces', serif;
     font-size: 1.1em;
 }
 
@@ -193,7 +221,7 @@ body {
 
 .modulo h4 {
     padding: 0 20px 5px;
-    font-family: var(--fuente-titulo);
+    font-family: 'Fraunces', serif;
     font-size: 0.9em;
 }
 
@@ -247,3 +275,4 @@ body {
     background: #d9534f !important;
     color: white !important;
 }
+
