@@ -238,7 +238,7 @@ flex-shrink: 0;
 
 .div-aba {
     width: 100%;
-    flex: 1; /* reemplaza height: 30% por esto */
+    height: 42%;
     padding: 10px;
     background: rgba(0, 0, 0, 0.5);
     text-align: center;
