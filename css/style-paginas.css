@@ -174,12 +174,40 @@ background-color: #ddd;
 /* ==============================
    CONFIGURAR PERFIL
 ============================== */
- 
+
+/* Estilo para el botón Volver al Principal */
+.volver-principal {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #94a3b8; /* Un gris azulado suave */
+    text-decoration: none;
+    font-size: 0.85em;
+    font-weight: 500;
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+    padding: 5px 10px;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.volver-principal i {
+    font-size: 0.9em;
+}
+
+.volver-principal:hover {
+    color: white;
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateX(-5px); /* Efecto sutil de movimiento a la izquierda */
+}
+
 .perfil-pagina {
     padding: 30px;
-    background: #f4f4f4;
+    background:linear-gradient(135deg, #1e293b, #0f172a);
     min-height: 100%;
     font-family: 'Montserrat', sans-serif ;
+    min-height: 100vh; 
+    width: 100%;
 }
  
 .perfil-encabezado {
@@ -191,17 +219,17 @@ background-color: #ddd;
 .perfil-encabezado h1 {
     font-family: 'Fraunces', serif;
     font-size: 1.5em;
-    color: var(--color-oscuro);
+    color: white;
 }
  
 .perfil-encabezado h1 i {
-    color: var(--color-acento);
+    color: white;
     margin-right: 8px;
 }
  
 .perfil-encabezado p {
     font-size: 0.85em;
-    color: #888;
+    color: white;
     margin-top: 4px;
 }
  
